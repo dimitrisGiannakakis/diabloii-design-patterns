@@ -1,0 +1,16 @@
+{
+    "name": "diabloii-design-patterns",
+    "description": "Construction diabloii game using design patterns",
+    "keywords": ["diabloii classes seperate", "opp", "design -patterns"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dimitris Giannakakis",
+            "email": "Dim.Giannakakis@yahoo.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {"Diablo": "src/"}
+    }
+}
