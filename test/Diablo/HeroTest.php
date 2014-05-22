@@ -11,4 +11,6 @@ class HeroTest extends \PHPUnit_Framework_TestCase
         $necromancer = new Necromancer('MPAMPIS');
         $this->assertInstanceOf('Diablo\Hero', $necromancer);
     }
+
+
 }

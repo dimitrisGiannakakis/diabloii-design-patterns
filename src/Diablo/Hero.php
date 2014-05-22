@@ -20,13 +20,14 @@ abstract class Hero
 
     protected $mana;
 
+    protected $level = 1;
+
+
     public function __construct($name)
     {
         $this->name = $name;
 
     }
-
-
 
     /**
      * Gets name.
@@ -187,5 +188,24 @@ abstract class Hero
     public function setEnergy($energy)
     {
         $this->energy = $energy;
+    }
+
+    public function levelUp()
+    {
+        $this->level++;
+        $this->level_up_attributes();
+    }
+
+    abstract protected function level_up_attributes();
+
+    /**
+     * Gets level.
+     *
+     * @access public
+     * @return mixed
+     */
+    public function getLevel()
+    {
+        return $this->level;
     }
 }
