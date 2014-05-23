@@ -4,7 +4,9 @@
 
 namespace Diablo;
 
-class Necromancer extends Hero
+use Diablo\Weapon;
+
+class Necromancer extends HeroVisitor
 {
 
     public function __construct($name)
@@ -25,8 +27,5 @@ class Necromancer extends Hero
         $this->stamina += 1;
         $this->mana += 2;
     }
-
-
-
 
 }

@@ -17,10 +17,10 @@ class NecromancerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($necromancer->getLIfe(),45);
     }
 
-    public function testLevelUp()
+   public function testLevelUp()
     {
 
-        $necromancer = new Necromancer('MPAMPIS');
+        $necromancer = new Necromancer('MPAMPIS',new Weapon());
         $necromancer->levelUp();
         $this->assertEquals($necromancer->getLevel(),2);
         $this->assertEquals($necromancer->getLife(),46.5);
@@ -28,6 +28,17 @@ class NecromancerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($necromancer->getMana(),27);
 
 
+
+    }
+
+    public function testAddWeapon()
+    {
+
+        $necromancer = new Necromancer('MPAMPIS');
+        $we = new Weapon();
+        $necromancer->addItem($we);
+        $this->assertEquals(25, $necromancer->getStrength());
+        $this->assertEquals(25, $necromancer->getStrength());
 
     }
 }

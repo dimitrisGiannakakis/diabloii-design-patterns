@@ -4,7 +4,9 @@
 
 namespace Diablo;
 
-abstract class Hero
+use Diablo\HeroVisitor;
+
+abstract class Hero extends Item
 {
     protected $name;
 
@@ -22,12 +24,15 @@ abstract class Hero
 
     protected $level = 1;
 
+    private $items = array();
+
 
     public function __construct($name)
     {
         $this->name = $name;
 
-    }
+    }}
+
 
     /**
      * Gets name.
@@ -60,6 +65,7 @@ abstract class Hero
      */
     public function getStrength()
     {
+
         return $this->strength;
     }
 
@@ -197,6 +203,31 @@ abstract class Hero
     }
 
     abstract protected function level_up_attributes();
+
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    public function addItem(Item $item)
+    {
+        if (in_array($item, $this->items, true)) {
+            return;
+        }
+
+        $this->items[] = $item;
+    }
+
+    public function removeItem(Item $item)
+    {
+        $this->items = array_udiff($this->items, array($item),
+
+            function($a,$b)
+            {
+                return ($a===$b)?0:1;
+            }
+        );
+    }
 
     /**
      * Gets level.
